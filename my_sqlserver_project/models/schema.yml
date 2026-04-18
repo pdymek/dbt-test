@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: stg_customers
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: email
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['example.com', 'test.com']
+
+
+  - name: raw_customers
+    columns:
+      - name: name
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "IS NOT NULL AND name <> ''"

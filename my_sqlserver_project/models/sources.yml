@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: my_incredible_source
+    description: Raw data from our Shopify store
+    database: raw
+    schema: shopify
+    tables:
